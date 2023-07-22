@@ -1,0 +1,183 @@
+﻿<Window x:Class="TestWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWpf"
+        xmlns:wpf="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <local:CanvasButton x:Name="CanvasButton1"
+                                Foreground="Aqua"
+                                Background="Gray"
+                                IsThree="True"
+                                Width="150"
+                                Height="50"
+                                HorizontalAlignment="Center"
+                                NowSwitch="1"
+                                OverridesDefaultStyle="True" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="宽度："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Text="{Binding ElementName=CanvasButton1, Path=Width}"
+                         Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="高度："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Text="{Binding ElementName=CanvasButton1, Path=Height}"
+                         Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="背景颜色(点击进行修改)："
+                           Margin="10,5,10,5"></TextBlock>
+                <Button Width="20"
+                        Height="20"
+                        Background="{Binding ElementName=CanvasButton1, Path=Background,Mode=TwoWay}"
+                        Click="CanvasButton1_Background_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="按钮颜色(点击进行修改)："
+                           Margin="10,5,10,5"></TextBlock>
+                <Button Width="20"
+                        Height="20"
+                        Background="{Binding ElementName=CanvasButton1, Path=Foreground,Mode=TwoWay}"
+                        Click="CanvasButton1_Foreground_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="当前位置："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBlock Text="{Binding ElementName=CanvasButton1, Path=NowSwitch,Mode=TwoWay}"
+                           Width="200"></TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0">
+            <local:CanvasButton x:Name="CanvasButton2"
+                                Foreground="Aqua"
+                                Background="Gray"
+                                IsThree="False"
+                                Width="150"
+                                Height="50"
+                                HorizontalAlignment="Center"
+                                NowSwitch="1"
+                                OverridesDefaultStyle="True" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="宽度："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Text="{Binding ElementName=CanvasButton2, Path=Width}"
+                         Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="高度："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Text="{Binding ElementName=CanvasButton2, Path=Height}"
+                         Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="背景颜色(点击进行修改)："
+                           Margin="10,5,10,5"></TextBlock>
+                <Button Width="20"
+                        Height="20"
+                        Background="{Binding ElementName=CanvasButton2, Path=Background,Mode=TwoWay}"
+                        Click="CanvasButton2_Background_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="按钮颜色(点击进行修改)："
+                           Margin="10,5,10,5"></TextBlock>
+                <Button Width="20"
+                        Height="20"
+                        Background="{Binding ElementName=CanvasButton2, Path=Foreground,Mode=TwoWay}"
+                        Click="CanvasButton2_Foreground_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="当前位置："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBlock Text="{Binding ElementName=CanvasButton2, Path=NowSwitch,Mode=TwoWay}"
+                           Width="200"></TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock Margin="5">
+                <Run>在下面输入所需字符串进行字符串拆分，结果将在右方显示</Run>
+                <LineBreak/>
+                <Run>所有字符串，分隔符不需要引号和逗号分隔</Run>
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="目标字符串："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Width="200"
+                         Name="SrcString"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="分隔符："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Width="200"
+                         Name="SeparatorChars"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="分隔数量："
+                           Margin="10,5,10,5"></TextBlock>
+                <TextBox Width="200"
+                         Name="Count"
+                         ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="忽略空串"
+                          Name="IgnoreEmpty"
+                          Margin="10,5,10,5"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="反转分隔"
+                          Name="IsReverse"
+                          Margin="10,5,10,5"></CheckBox>
+            </StackPanel>
+
+            <Button Width="50"
+                    Height="25"
+                    Background="Cornsilk"
+                    Content="提交"
+                    Click="ButtonBase_OnClick">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius"
+                                Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Name="AnsText"
+                       Margin="10,5,10,5"/>
+        </StackPanel>
+    </Grid>
+    
+    <!-- <local:CanvasButton Width="50" Height="100"></local:CanvasButton> -->
+    <!-- <StackPanel> -->
+    <!--     <local:CanvasButton x:Name="CanvasButton" -->
+    <!--                         Foreground="Aqua" -->
+    <!--                         Background="Gray" -->
+    <!--                         IsThree="True" -->
+    <!--                         Width="200" -->
+    <!--                         Height="50" -->
+    <!--                         HorizontalAlignment="Center" -->
+    <!--                         NowSwitch="1" -->
+    <!--                         OverridesDefaultStyle="True" /> -->
+    <!--      -->
+    <!-- -->
+    <!-- </StackPanel> -->
+
+</Window>
